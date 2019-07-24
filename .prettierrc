@@ -1,0 +1,7 @@
+{
+  "singleQuote": true,
+  "semi": true,
+  "newline-before-return": true,
+  "no-duplicate-variable": [true, "check-parameters"],
+  "no-var-keyword": true
+}
