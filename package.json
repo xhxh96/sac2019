@@ -9,7 +9,6 @@
     "lint": "tslint 'src/**/*.{ts, tsx}'"
   },
   "dependencies": {
-    "class-autobind-decorator": "^3.0.1",
     "expo": "^33.0.0",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
