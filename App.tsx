@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import autoBindMethods from 'class-autobind-decorator';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 
 import {
   getFlightStatusByRoute,
@@ -12,8 +11,10 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button
-          title="By Route"
+        <TouchableOpacity
+          style={{
+            backgroundColor: '#bfbfbf'
+          }}
           onPress={() =>
             getFlightStatusByRoute({
               originAirportCode: 'SIN',
@@ -22,7 +23,9 @@ class App extends Component {
               scheduledArrivalDate: '2019-07-30'
             })
           }
-        />
+        >
+          <Text>By Number</Text>
+        </TouchableOpacity>
         <Button
           title="By Number"
           onPress={() =>

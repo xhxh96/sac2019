@@ -7,6 +7,7 @@ import {
 const baseUrl = 'https://apigw.singaporeair.com/api';
 
 module.exports = {
+  /*https://developer.singaporeair.com/docs/read/flight_status/Flight_Status_by_Flight_Number*/
   getFlightStatusByRoute: async ({
     originAirportCode,
     scheduledDepartureDate,
@@ -31,6 +32,7 @@ module.exports = {
     console.log(resBody);
   },
 
+  /**https://developer.singaporeair.com/docs/read/flight_status/Flight_Status_by_Route */
   getFlightStatusByNumber: async ({
     airlineCode,
     flightNumber,
@@ -59,6 +61,7 @@ module.exports = {
     console.log(resBody);
   },
 
+  /**https://developer.singaporeair.com/docs/read/flight_search/flightavailability */
   flightSearch: async ({
     itineraryDetails,
     cabinClass,
