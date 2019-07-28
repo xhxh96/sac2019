@@ -1,3 +1,11 @@
+import {
+  clientUUID,
+  flightStatus,
+  flightSearch
+} from '../../config/Credentials';
+
+const baseUrl = 'https://apigw.singaporeair.com/api';
+
 module.exports = {
   getFlightStatusByRoute: async ({
     originAirportCode,
@@ -5,27 +13,81 @@ module.exports = {
     destinationAirportCode,
     scheduledArrivalDate
   }) => {
-    let response = await fetch(
-      'https://apigw.singaporeair.com/api/v3/flightstatus/getbyroute',
-      {
-        method: 'POST',
-        headers: {
-          apikey: '9vghg66sfg7bfnntyshm54fm',
-          'X-Originating-IP': '67.85.215.220',
-          'Content-Type': 'application/json'
+    const path = `${baseUrl}/v3/flightstatus/getbyroute`;
+    let response = await fetch(path, {
+      method: 'POST',
+      headers: flightStatus,
+      body: JSON.stringify({
+        request: {
+          originAirportCode,
+          scheduledDepartureDate,
+          destinationAirportCode,
+          scheduledArrivalDate
         },
-        body: JSON.stringify({
-          request: {
-            originAirportCode,
-            scheduledDepartureDate,
-            destinationAirportCode,
-            scheduledArrivalDate
-          },
-          clientUUID: 'TestIODocs'
-        })
-      }
-    );
-    let responseJson = await response.json();
-    console.log(responseJson);
+        clientUUID: clientUUID
+      })
+    });
+    let resBody = await response.json();
+    console.log(resBody);
+  },
+
+  getFlightStatusByNumber: async ({
+    airlineCode,
+    flightNumber,
+    originAirportCode,
+    scheduledDepartureDate,
+    destinationAirportCode,
+    scheduledArrivalDate
+  }) => {
+    const path = `${baseUrl}/v3/flightstatus/getbynumber`;
+    let response = await fetch(path, {
+      method: 'POST',
+      headers: flightStatus,
+      body: JSON.stringify({
+        request: {
+          airlineCode,
+          flightNumber,
+          originAirportCode,
+          scheduledDepartureDate,
+          destinationAirportCode,
+          scheduledArrivalDate
+        },
+        clientUUID: clientUUID
+      })
+    });
+    let resBody = await response.json();
+    console.log(resBody);
+  },
+
+  flightSearch: async ({
+    itineraryDetails,
+    cabinClass,
+    adultCount,
+    childCount,
+    infantCount,
+    flightSortingRequired,
+    flexibleDates,
+    dateRange
+  }) => {
+    const path = `${baseUrl}/v1/commercial/flightavailability/get`;
+    let response = await fetch(path, {
+      method: 'POST',
+      headers: flightSearch,
+      body: JSON.stringify({
+        request: {
+          itineraryDetails,
+          cabinClass,
+          adultCount,
+          childCount,
+          infantCount,
+          flightSortingRequired,
+          flexibleDates,
+          dateRange
+        },
+        clientUUID: clientUUID
+      })
+    });
+    let resBody = await response.json();
+    console.log(resBody);
   }
 };
