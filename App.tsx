@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import API from './src/server/ApiClient';
 
 import {
   getFlightStatusByRoute,
@@ -9,8 +10,17 @@ import {
 
 class App extends Component {
   render() {
+    const path = 'http://localhost:3000/api';
     return (
       <View style={styles.container}>
+        <Button
+          title="Axios"
+          onPress={() =>
+            API.call('hello', res => {
+              console.log(res);
+            })
+          }
+        />
         <TouchableOpacity
           style={{
             backgroundColor: '#bfbfbf'
