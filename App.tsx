@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import API from './src/server/ApiClient';
 
-import {
-  getFlightStatusByRoute,
-  getFlightStatusByNumber,
-  flightSearch
-} from './src/server/SIA';
+import { getFlightStatusByRoute, getFlightStatusByNumber, flightSearch } from './src/server/SIA';
 
 class App extends Component {
   render() {

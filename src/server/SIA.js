@@ -1,10 +1,10 @@
+/**
+ * Public API provided by Singapore Airlines App Challenge
+ */
+
 const fetch = require('node-fetch');
 
-import {
-  clientUUID,
-  flightStatus,
-  flightSearch
-} from '../../config/Credentials';
+import { clientUUID, flightStatus, flightSearch } from '../../config/Credentials';
 
 const baseUrl = 'https://apigw.singaporeair.com/api';
 

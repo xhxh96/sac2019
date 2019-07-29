@@ -13,6 +13,7 @@ function createHandler(key, def) {
   };
 }
 
+/** List of available API */
 export const AppAPI = {
   helloWorld: {
     method: 'post',
@@ -48,19 +49,15 @@ export const AppAPI = {
   }
 };
 
+/** Method to attach API handler with API listeners
+ * Run once during initialisation of server
+ */
 export default {
   attach: (server, path, definitions) => {
     _.forEach(definitions, (def, key) => {
       const fullPath = `${path}/${key}`;
       server[def.method](fullPath, createHandler(key, def));
-      console.log(
-        'Registered API [' +
-          def.method.toUpperCase() +
-          '] method @ ' +
-          path +
-          '/' +
-          key
-      );
+      console.log('Registered API [' + def.method.toUpperCase() + '] method @ ' + path + '/' + key);
     });
   }
 };

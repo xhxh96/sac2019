@@ -1,3 +1,7 @@
+/**
+ * Generic API client to query API calls.
+ */
+
 import axios from 'axios';
 import _ from 'lodash';
 
