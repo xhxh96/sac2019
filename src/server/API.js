@@ -22,18 +22,8 @@ function createHandler(key, def) {
 export const AppAPI = {
   getFlightStatusByRoute: {
     method: 'post',
-    handler: async ({
-      originAirportCode,
-      scheduledDepartureDate,
-      destinationAirportCode,
-      scheduledArrivalDate
-    }) => {
-      let response = await SIA.getFlightStatusByRoute({
-        originAirportCode,
-        scheduledDepartureDate,
-        destinationAirportCode,
-        scheduledArrivalDate
-      });
+    handler: async args => {
+      let response = await SIA.getFlightStatusByRoute(args);
       console.log(response);
       return response;
     }
@@ -41,22 +31,8 @@ export const AppAPI = {
 
   getFlightStatusByNumber: {
     method: 'post',
-    handler: async ({
-      airlineCode,
-      flightNumber,
-      originAirportCode,
-      scheduledDepartureDate,
-      destinationAirportCode,
-      scheduledArrivalDate
-    }) => {
-      let response = await SIA.getFlightStatusByNumber({
-        airlineCode,
-        flightNumber,
-        originAirportCode,
-        scheduledDepartureDate,
-        destinationAirportCode,
-        scheduledArrivalDate
-      });
+    handler: async args => {
+      let response = await SIA.getFlightStatusByNumber(args);
       console.log(response);
       return response;
     }
@@ -64,26 +40,8 @@ export const AppAPI = {
 
   flightSearch: {
     method: 'post',
-    handler: async ({
-      itineraryDetails,
-      cabinClass,
-      adultCount,
-      childCount,
-      infantCount,
-      flightSortingRequired,
-      flexibleDates,
-      dateRange
-    }) => {
-      let response = SIA.flightSearch({
-        itineraryDetails,
-        cabinClass,
-        adultCount,
-        childCount,
-        infantCount,
-        flightSortingRequired,
-        flexibleDates,
-        dateRange
-      });
+    handler: async args => {
+      let response = SIA.flightSearch(args);
       console.log(response);
       return response;
     }
