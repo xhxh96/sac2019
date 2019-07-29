@@ -5,10 +5,12 @@ class APIClient {
   constructor() {
     this.path = 'http://localhost:3000/api';
   }
-  call(method, success, failure) {
+  call(method, args, success, failure) {
     axios
-      .get(this.path + '/' + method)
+      .post(this.path + '/' + method, args)
       .then(response => {
+        console.log('this is response');
+        console.log(response);
         if (typeof success == 'function') success(response.data);
       })
       .catch(error => {
@@ -17,7 +19,6 @@ class APIClient {
         const status = err && err.response ? err.response.status : null;
         if (typeof failure == 'function') failure(data, status);
         else console.error(error);
-        reject(error);
       });
   }
 }

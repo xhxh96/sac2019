@@ -10,13 +10,12 @@ import {
 
 class App extends Component {
   render() {
-    const path = 'http://localhost:3000/api';
     return (
       <View style={styles.container}>
         <Button
           title="Axios"
           onPress={() =>
-            API.call('hello', res => {
+            API.call('helloWorld', { hello: 'true' }, res => {
               console.log(res);
             })
           }
