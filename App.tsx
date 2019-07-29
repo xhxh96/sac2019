@@ -6,16 +6,9 @@ import { getFlightStatusByRoute, getFlightStatusByNumber, flightSearch } from '.
 
 class App extends Component {
   render() {
+    const hello = 5;
     return (
       <View style={styles.container}>
-        <Button
-          title="Axios"
-          onPress={() =>
-            API.call('helloWorld', { hello: 'true' }, res => {
-              console.log(res);
-            })
-          }
-        />
         <TouchableOpacity
           style={{
             backgroundColor: '#bfbfbf'

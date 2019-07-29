@@ -10,7 +10,6 @@ class APIClient {
     this.path = 'http://localhost:3000/api';
   }
   call(method, args, success, failure) {
-    console.log(args);
     return new Promise((resolve, reject) => {
       axios
         .post(this.path + '/' + method, args)

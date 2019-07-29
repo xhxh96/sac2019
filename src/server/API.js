@@ -17,35 +17,20 @@ function createHandler(key, def) {
 
 /** List of available API */
 export const AppAPI = {
-  helloWorld: {
-    method: 'post',
-    handler: hello => {
-      console.log('ni hao');
-      if ((hello = 'true')) {
-        console.log('hello');
-        return 'api - hello';
-      } else {
-        console.log('not true');
-        return 'api-not true';
-      }
-    }
-  },
-
   getFlightStatusByRoute: {
     method: 'post',
-    handler: async (
+    handler: async ({
       originAirportCode,
       scheduledDepartureDate,
       destinationAirportCode,
       scheduledArrivalDate
-    ) => {
+    }) => {
       let response = await SIA.getFlightStatusByRoute({
         originAirportCode,
         scheduledDepartureDate,
         destinationAirportCode,
         scheduledArrivalDate
       });
-      console.log(response);
       return response;
     }
   }

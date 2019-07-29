@@ -31,6 +31,7 @@ module.exports = {
       })
     });
     let resBody = await response.json();
+    console.log(resBody);
     return resBody;
   },
 
@@ -60,7 +61,7 @@ module.exports = {
       })
     });
     let resBody = await response.json();
-    console.log(resBody);
+    return resBody;
   },
 
   /**https://developer.singaporeair.com/docs/read/flight_search/flightavailability */
