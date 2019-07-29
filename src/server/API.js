@@ -6,7 +6,9 @@ function createHandler(key, def) {
     const isGet = req.method.toUpperCase() === 'GET';
     const args = isGet ? _.merge({}, req.params, req.query) : req.body;
     try {
+      console.log(`API request at: [${key}]`);
       let result = await def.handler(args);
+      res.send(result);
     } catch (err) {
       console.log(err);
     }
@@ -49,8 +51,9 @@ export const AppAPI = {
   }
 };
 
-/** Method to attach API handler with API listeners
- * Run once during initialisation of server
+/**
+ * Method to attach API handler with API listeners
+ * Run once each time server instantiates
  */
 export default {
   attach: (server, path, definitions) => {
@@ -59,5 +62,6 @@ export default {
       server[def.method](fullPath, createHandler(key, def));
       console.log('Registered API [' + def.method.toUpperCase() + '] method @ ' + path + '/' + key);
     });
+    console.log('[All API Registered. Happy Coding!]');
   }
 };
