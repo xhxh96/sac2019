@@ -6,7 +6,7 @@ import {
   getFlightStatusByRoute,
   getFlightStatusByNumber,
   flightSearch
-} from './src/server/API';
+} from './src/server/SIA';
 
 class App extends Component {
   render() {
@@ -24,16 +24,16 @@ class App extends Component {
           style={{
             backgroundColor: '#bfbfbf'
           }}
-          onPress={() =>
-            getFlightStatusByRoute({
+          onPress={() => {
+            API.call('getFlightStatusByRoute', {
               originAirportCode: 'SIN',
               scheduledDepartureDate: '2019-07-28',
               destinationAirportCode: 'MAA',
               scheduledArrivalDate: '2019-07-30'
-            })
-          }
+            });
+          }}
         >
-          <Text>By Number</Text>
+          <Text>By Route</Text>
         </TouchableOpacity>
         <Button
           title="By Number"

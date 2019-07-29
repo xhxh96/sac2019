@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import API, { AppAPI } from './src/server/api_test';
+import API, { AppAPI } from './src/server/Api';
 
 const app = express();
 
