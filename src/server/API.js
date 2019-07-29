@@ -1,3 +1,6 @@
+/**
+ * Main API layer for this App
+ */
 import _ from 'lodash';
 import SIA from './SIA';
 

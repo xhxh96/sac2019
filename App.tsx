@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import API from './src/server/ApiClient';
+import API from './src/ApiClient';
 
 import { getFlightStatusByRoute, getFlightStatusByNumber, flightSearch } from './src/server/SIA';
 
