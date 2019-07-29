@@ -94,6 +94,6 @@ module.exports = {
       })
     });
     let resBody = await response.json();
-    console.log(resBody);
+    return resBody;
   }
 };

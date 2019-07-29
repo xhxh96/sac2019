@@ -7,5 +7,6 @@
     "check-parameters"
   ],
   "no-var-keyword": true,
-  "printWidth": 100
+  "printWidth": 100,
+  "proseWrap": "never",
 }

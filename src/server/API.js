@@ -34,6 +34,57 @@ export const AppAPI = {
         destinationAirportCode,
         scheduledArrivalDate
       });
+      console.log(response);
+      return response;
+    }
+  },
+
+  getFlightStatusByNumber: {
+    method: 'post',
+    handler: async ({
+      airlineCode,
+      flightNumber,
+      originAirportCode,
+      scheduledDepartureDate,
+      destinationAirportCode,
+      scheduledArrivalDate
+    }) => {
+      let response = await SIA.getFlightStatusByNumber({
+        airlineCode,
+        flightNumber,
+        originAirportCode,
+        scheduledDepartureDate,
+        destinationAirportCode,
+        scheduledArrivalDate
+      });
+      console.log(response);
+      return response;
+    }
+  },
+
+  flightSearch: {
+    method: 'post',
+    handler: async ({
+      itineraryDetails,
+      cabinClass,
+      adultCount,
+      childCount,
+      infantCount,
+      flightSortingRequired,
+      flexibleDates,
+      dateRange
+    }) => {
+      let response = SIA.flightSearch({
+        itineraryDetails,
+        cabinClass,
+        adultCount,
+        childCount,
+        infantCount,
+        flightSortingRequired,
+        flexibleDates,
+        dateRange
+      });
+      console.log(response);
       return response;
     }
   }
