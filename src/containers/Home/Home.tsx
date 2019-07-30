@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { withNavigationFocus } from 'react-navigation';
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   navigation: any;
 }
 
-class HomeScreen extends Component<Props> {
+class Home extends Component<Props> {
   componentDidUpdate(prevProps) {
     if (prevProps.isFocused !== this.props.isFocused) {
       console.log(`HomeScreen::isFocused: ${this.props.isFocused}`);
@@ -18,8 +18,14 @@ class HomeScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text>Singapore Airlines</Text>
-        <Button title="Email" onPress={() => this.props.navigation.navigate('Login')} />
-        <Button title="Facebook" onPress={() => console.log('Facebook Login: TBD')} />
+        <Button
+          title="Email"
+          onPress={() => this.props.navigation.navigate('Login')}
+        />
+        <Button
+          title="Facebook"
+          onPress={() => console.log('Facebook Login: TBD')}
+        />
       </View>
     );
   }
@@ -34,4 +40,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withNavigationFocus(HomeScreen);
+export default withNavigationFocus(Home);
