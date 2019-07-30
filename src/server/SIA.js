@@ -2,6 +2,8 @@
  * Public API provided by Singapore Airlines App Challenge
  */
 
+// we use fetch here for query instead of axios. There is no apparent reason
+// except that I'm lazy to refactor
 const fetch = require('node-fetch');
 
 import { clientUUID, flightStatus, flightSearch } from '../../config/Credentials';

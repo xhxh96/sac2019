@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
 
-class Page extends Component {
+interface Props {
+  isFocused: boolean;
+  navigation: any;
+}
+
+class Page extends Component<Props> {
   render() {
     return (
       <View>

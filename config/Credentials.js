@@ -1,3 +1,7 @@
+/**
+ * Credentials Configuration for APIs
+ */
+
 module.exports = {
   clientUUID: 'TestIODocs',
   flightStatus: {

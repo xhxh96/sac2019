@@ -20,6 +20,14 @@ const AppNavigator = createStackNavigator(
 const AppContainer = createAppContainer(AppNavigator);
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: null,
+      uid: null
+    };
+  }
   render() {
     return <AppContainer />;
   }

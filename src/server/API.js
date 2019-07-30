@@ -1,8 +1,7 @@
-/**
- * Main API layer for this App
- */
 import _ from 'lodash';
+
 import SIA from './SIA';
+import { User1 } from '../../fixtures/Users';
 
 function createHandler(key, def) {
   return async (req, res) => {
@@ -44,6 +43,19 @@ export const AppAPI = {
       let response = SIA.flightSearch(args);
       console.log(response);
       return response;
+    }
+  },
+
+  // probably the worst authentication mechanism you'll ever see in your lifetime
+  loginWithEmailAndPassword: {
+    method: 'post',
+    handler: ({ email, password }) => {
+      if (User1.email !== email) return 'account not found';
+
+      if (User1.password !== password) return 'wrong password';
+      else {
+        return 'got a token';
+      }
     }
   }
 };
