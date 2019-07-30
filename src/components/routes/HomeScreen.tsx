@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { withNavigationFocus } from 'react-navigation';
 
-import API from '../../ApiClient';
-
 interface Props {
   isFocused: boolean;
   navigation: any;

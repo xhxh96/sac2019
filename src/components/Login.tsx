@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-class Page extends Component {
+class Login extends Component {
   render() {
     return (
       <View>
@@ -11,4 +11,4 @@ class Page extends Component {
   }
 }
 
-export default Page;
+export default Login;

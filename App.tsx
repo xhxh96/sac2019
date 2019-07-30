@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import HomeScreen from './src/components/routes/HomeScreen';
-import Login from './src/components/routes/Login';
+import Login from './src/components/Login';
 import Page from './src/components/routes/Page';
 
 const AppNavigator = createStackNavigator(
