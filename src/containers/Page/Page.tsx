@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Button, Text, View } from 'react-native';
 
 interface Props {
   isFocused: boolean;
