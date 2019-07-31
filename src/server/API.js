@@ -1,7 +1,10 @@
 import _ from 'lodash';
 
 import SIA from './SIA';
-import { User1 } from '../../fixtures/Users';
+import APIError from '../server/APIError';
+import { getSafeKey } from '../utils/generator';
+
+import Users from '../../fixtures/Users';
 
 function createHandler(key, def) {
   return async (req, res) => {
@@ -50,12 +53,15 @@ export const AppAPI = {
   loginWithEmailAndPassword: {
     method: 'post',
     handler: ({ email, password }) => {
-      if (User1.email !== email) return 'account not found';
+      const passwordHash = getSafeKey(password);
+      const user = _.find(Users, { email });
+      // if the user email does not exist.
+      if (!user) throw new APIError(401, '[Unauthorised]: Account not found');
 
-      if (User1.password !== password) return 'wrong password';
-      else {
-        return 'got a token';
-      }
+      if (user && passwordHash === user.password) {
+        console.log('[Auth] Login Successful');
+        return 'success';
+      } else throw new APIError(401, '[Unauthorised]: Invalid Password');
     }
   }
 };

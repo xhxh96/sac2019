@@ -18,14 +18,8 @@ class Home extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text>Singapore Airlines</Text>
-        <Button
-          title="Email"
-          onPress={() => this.props.navigation.navigate('Login')}
-        />
-        <Button
-          title="Facebook"
-          onPress={() => console.log('Facebook Login: TBD')}
-        />
+        <Button title="Email" onPress={() => this.props.navigation.navigate('LOGIN')} />
+        <Button title="Facebook" onPress={() => console.log('Facebook Login: TBD')} />
       </View>
     );
   }
