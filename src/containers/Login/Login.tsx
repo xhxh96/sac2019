@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, View } from 'react-native';
 import { Card, Input } from 'react-native-elements';
 
+import { FLIGHT_INFO, HOME } from '../../constants/routeKeys';
 import { loginWithEmailAndPassword } from '../../utils/networkHandler';
 
 class Login extends Component {
@@ -15,9 +16,26 @@ class Login extends Component {
     };
   }
 
-  loginHandler = () => {
+  componentDidUpdate(prevProps, prevState) {
+    const { isLoggedIn } = this.state;
+    const { navigation } = this.props;
+
+    if (prevState.isLoggedIn === isLoggedIn) return;
+    else {
+      switch (isLoggedIn) {
+        case isLoggedIn:
+          navigation.navigate(FLIGHT_INFO);
+          break;
+        default:
+          navigation.navigate(HOME);
+          break;
+      }
+    }
+  }
+
+  loginHandler = async () => {
     const { email, password } = this.state;
-    const authResponse = loginWithEmailAndPassword(email, password);
+    const authResponse = await loginWithEmailAndPassword(email, password);
     if (authResponse === 'success') this.setState({ isLoggedIn: true });
   };
 
