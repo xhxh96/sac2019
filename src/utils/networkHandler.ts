@@ -5,7 +5,7 @@ export const loginWithEmailAndPassword = (email: string, password: string) =>
     'loginWithEmailAndPassword',
     { email, password },
     token => {
-      if (token === 'got a token') console.log('authenticated');
+      if (token === 'success') return 'success';
     },
     error => console.log(error)
   );

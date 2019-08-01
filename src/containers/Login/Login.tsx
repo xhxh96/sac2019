@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, View } from 'react-native';
+import { Card, Input } from 'react-native-elements';
+
 import { loginWithEmailAndPassword } from '../../utils/networkHandler';
 
 class Login extends Component {
@@ -7,14 +9,26 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      email: '',
+      password: ''
     };
   }
+
+  loginHandler = () => {
+    const { email, password } = this.state;
+    const authResponse = loginWithEmailAndPassword(email, password);
+    if (authResponse === 'success') this.setState({ isLoggedIn: true });
+  };
 
   render() {
     return (
       <View>
-        <Button title="Login" onPress={() => loginWithEmailAndPassword('andrewotto@gmail.com', '1234568')} />
+        <Card>
+          <Input placeholder="Email" onChangeText={text => this.setState({ email: text.toLowerCase() })} />
+          <Input placeholder="Password" secureTextEntry onChangeText={text => this.setState({ password: text })} />
+          <Button title="Login" onPress={() => this.loginHandler()} />
+        </Card>
       </View>
     );
   }
