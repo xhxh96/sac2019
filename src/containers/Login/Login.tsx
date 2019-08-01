@@ -66,7 +66,6 @@ class Login extends Component<Props, State> {
           />
           <Button title="Login" onPress={() => this.loginHandler()} />
         </Card>
-        {/* {errorMessage.length > 1 && <Text>{errorMessage}</Text>} */}
       </View>
     );
   }
