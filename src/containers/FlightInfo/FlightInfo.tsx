@@ -92,18 +92,12 @@ class FlightInfo extends Component {
           </View>
           {this.renderFlightInfo(FLIGHT_INFO_STUB)}
           <Divider style={{ marginVertical: 15 }} />
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}
-          >
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View style={styles.passengerContainer}>
+            <View style={styles.profileContainer}>
               <ProfileImage
                 imageSource={require('../../../assets/images/profile-image/profile-image.jpg')}
               />
-              <View style={{ flexDirection: 'column', marginLeft: 16 }}>
+              <View style={styles.passengerInfoContainer}>
                 <Text style={{ color: '#454F63', fontSize: 16 }}>
                   Mary Jane
                 </Text>
@@ -112,15 +106,7 @@ class FlightInfo extends Component {
                 </Text>
               </View>
             </View>
-            <Button
-              buttonStyle={{
-                backgroundColor: '#665EFF',
-                paddingHorizontal: 21,
-                paddingVertical: 8
-              }}
-            >
-              GO BUY
-            </Button>
+            <Button buttonStyle={styles.buyButton}>GO BUY</Button>
           </View>
           <Button buttonStyle={{ marginTop: 30 }} textStyle={{ fontSize: 15 }}>
             Ready to Fly?

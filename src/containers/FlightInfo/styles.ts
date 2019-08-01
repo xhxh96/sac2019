@@ -47,7 +47,25 @@ const styles = StyleSheet.create({
     color: '#454F63',
     fontSize: 22,
     marginTop: 18
-  } as TextStyle
+  } as TextStyle,
+  passengerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  } as ViewStyle,
+  profileContainer: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  } as ViewStyle,
+  passengerInfoContainer: {
+    flexDirection: 'column',
+    marginLeft: 16
+  } as ViewStyle,
+  buyButton: {
+    backgroundColor: '#665EFF',
+    paddingHorizontal: 21,
+    paddingVertical: 8
+  } as ViewStyle
 });
 
 export default styles;
