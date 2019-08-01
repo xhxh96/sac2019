@@ -5,6 +5,8 @@ export const addToAsyncStorage = async user => AsyncStorage.setItem(user.email, 
 
 export const removeFromAsyncStorage = user => AsyncStorage.removeItem(user);
 
+export const clearAsyncStorage = () => AsyncStorage.clear();
+
 export const isSignedIn = user => {
   return new Promise((resolve, reject) => {
     AsyncStorage.getItem(user)
@@ -20,8 +22,4 @@ export const printAsyncStorage = async () => {
   const keys = await AsyncStorage.getAllKeys();
   const items = await AsyncStorage.multiGet(keys);
   console.log(items);
-};
-
-export const clearAsyncStorage = () => {
-  AsyncStorage.clear();
 };
