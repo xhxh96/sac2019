@@ -1,8 +1,34 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import React, { Component } from 'react';
 import { Image, Text, View } from 'react-native';
+import { Divider } from 'react-native-elements';
+import { Button, ProfileImage } from '../../components';
 import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../../constants/deviceDimensions';
 import styles from './styles';
+
+const FLIGHT_INFO_STUB = [
+  {
+    type: 'FLIGHT',
+    data: 'AC123'
+  },
+  {
+    type: 'SEAT',
+    data: '12F'
+  },
+  {
+    type: 'NO. OF PASSENGERS',
+    data: '110/122'
+  },
+  {
+    type: 'GATE',
+    data: '07'
+  }
+];
+
+interface FlightData {
+  type: string;
+  data: string;
+}
 
 const BackgroundImage: React.FunctionComponent = () => (
   <Image
@@ -36,6 +62,20 @@ class FlightInfo extends Component {
     </View>
   );
 
+  renderFlightInfo = (flightInfo: FlightData[]) => (
+    <View style={styles.flightInfoContainer}>
+      {flightInfo.map(info => (
+        <View
+          style={{ flexDirection: 'column', alignItems: 'center' }}
+          key={info.type}
+        >
+          <Text style={styles.flightInfoHeaderText}>{info.type}</Text>
+          <Text style={styles.flightInfoText}>{info.data}</Text>
+        </View>
+      ))}
+    </View>
+  );
+
   render() {
     return (
       <View>
@@ -50,24 +90,41 @@ class FlightInfo extends Component {
               10:52, JAN 12
             </Text>
           </View>
-          <View style={styles.flightInfoContainer}>
-            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-              <Text style={styles.flightInfoHeaderText}>FLIGHT</Text>
-              <Text style={styles.flightInfoText}>AC123</Text>
+          {this.renderFlightInfo(FLIGHT_INFO_STUB)}
+          <Divider style={{ marginVertical: 15 }} />
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}
+          >
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <ProfileImage
+                imageSource={require('../../../assets/images/profile-image/profile-image.jpg')}
+              />
+              <View style={{ flexDirection: 'column', marginLeft: 16 }}>
+                <Text style={{ color: '#454F63', fontSize: 16 }}>
+                  Mary Jane
+                </Text>
+                <Text style={{ color: 'gray', fontSize: 14 }}>
+                  Business CLass
+                </Text>
+              </View>
             </View>
-            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-              <Text style={styles.flightInfoHeaderText}>SEAT</Text>
-              <Text style={styles.flightInfoText}>12F</Text>
-            </View>
-            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-              <Text style={styles.flightInfoHeaderText}>NO. OF PASSENGERS</Text>
-              <Text style={styles.flightInfoText}>110/122</Text>
-            </View>
-            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-              <Text style={styles.flightInfoHeaderText}>GATE</Text>
-              <Text style={styles.flightInfoText}>08</Text>
-            </View>
+            <Button
+              buttonStyle={{
+                backgroundColor: '#665EFF',
+                paddingHorizontal: 21,
+                paddingVertical: 8
+              }}
+            >
+              GO BUY
+            </Button>
           </View>
+          <Button buttonStyle={{ marginTop: 30 }} textStyle={{ fontSize: 15 }}>
+            Ready to Fly?
+          </Button>
         </View>
       </View>
     );

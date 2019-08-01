@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     flex: 2
-  },
+  } as ViewStyle,
   locationText: {
     fontSize: 16,
     color: 'gray'
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     color: '#454F63',
     fontSize: 22,
     marginTop: 18
-  }
+  } as TextStyle
 });
 
 export default styles;
