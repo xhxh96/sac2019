@@ -1,5 +1,5 @@
+import { Asset } from 'expo-asset';
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
 import AppNavigator from './src/containers/AppNavigator';
 
 class App extends Component {
@@ -11,21 +11,16 @@ class App extends Component {
       uid: null
     };
   }
+
+  async componentDidMount() {
+    await Asset.loadAsync([
+      require('./assets/images/flight-info-bg/flight-info-bg.png')
+    ]);
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <AppNavigator />
-      </View>
-    );
+    return <AppNavigator />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center'
-  }
-});
 
 export default App;
