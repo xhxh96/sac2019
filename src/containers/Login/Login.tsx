@@ -71,9 +71,14 @@ class Login extends Component<Props, State> {
     return (
       <View>
         <Card>
-          <Input placeholder="Email" onChangeText={text => this.setState({ email: text.toString().toLowerCase() })} />
+          <Input
+            autoCapitalize="none"
+            placeholder="Email"
+            onChangeText={text => this.setState({ email: text.toString().toLowerCase() })}
+          />
           <Input
             placeholder="Password"
+            autoCapitalize="none"
             errorMessage={errorMessage}
             secureTextEntry
             onChangeText={text => this.setState({ password: text.toString() })}
