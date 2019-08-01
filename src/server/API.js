@@ -67,6 +67,8 @@ export const AppAPI = {
         return 'success';
       } else {
         const error = new APIError(401, '[Unauthorised]: Invalid Password');
+        console.log(error);
+        return error;
       }
     }
   }

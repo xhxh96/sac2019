@@ -58,10 +58,15 @@ class Login extends Component<Props, State> {
       <View>
         <Card>
           <Input placeholder="Email" onChangeText={text => this.setState({ email: text.toLowerCase() })} />
-          <Input placeholder="Password" secureTextEntry onChangeText={text => this.setState({ password: text })} />
+          <Input
+            placeholder="Password"
+            errorMessage={errorMessage}
+            secureTextEntry
+            onChangeText={text => this.setState({ password: text })}
+          />
           <Button title="Login" onPress={() => this.loginHandler()} />
         </Card>
-        {errorMessage.length > 1 && <Text>{errorMessage}</Text>}
+        {/* {errorMessage.length > 1 && <Text>{errorMessage}</Text>} */}
       </View>
     );
   }
