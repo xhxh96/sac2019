@@ -14,12 +14,7 @@ class Login extends Component {
   render() {
     return (
       <View>
-        <Button
-          title="Login"
-          onPress={() =>
-            loginWithEmailAndPassword('andrewotto@gmail.com', '12345678')
-          }
-        />
+        <Button title="Login" onPress={() => loginWithEmailAndPassword('andrewotto@gmail.com', '1234568')} />
       </View>
     );
   }
