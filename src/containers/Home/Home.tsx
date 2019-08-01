@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { NavigationParams, NavigationRoute, NavigationScreenProp, withNavigationFocus } from 'react-navigation';
 
+import { Button } from '../../components';
 import { FLIGHT_INFO, LOGIN } from '../../constants/routeKeys';
+import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../../constants/deviceDimensions';
 
 interface Props {
   isFocused: boolean;
   navigation: NavigationScreenProp<NavigationRoute, NavigationParams>;
 }
+
+const BackgroundImage: React.FunctionComponent = () => (
+  <Image
+    source={require('../../../assets/images/home-bg/home-bg.png')}
+    resizeMode="cover"
+    style={{
+      width: DEVICE_WIDTH,
+      height: DEVICE_HEIGHT,
+      position: 'absolute'
+    }}
+  />
+);
 
 class Home extends Component<Props> {
   static navigationOptions = {
@@ -28,11 +42,19 @@ class Home extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
-        <Text>Singapore Airlines</Text>
-        <Button title="Email" onPress={() => navigation.navigate(LOGIN)} />
-        <Button title="Facebook" onPress={() => console.log('Facebook Login: TBD')} />
-        <Button title="Flight Info" onPress={() => navigation.navigate(FLIGHT_INFO)} />
+      <View>
+        <View style={styles.container}>
+          <Text>Singapore Airlines</Text>
+          <Button buttonStyle={{ marginTop: 30 }} onPress={() => navigation.navigate(LOGIN)}>
+            Email
+          </Button>
+          <Button buttonStyle={{ marginTop: 30 }} onPress={() => console.log('Facebook Login: TBD')}>
+            Facebook
+          </Button>
+          <Button buttonStyle={{ marginTop: 30 }} onPress={() => navigation.navigate(FLIGHT_INFO)}>
+            Flight Info
+          </Button>
+        </View>
       </View>
     );
   }
@@ -40,7 +62,8 @@ class Home extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: DEVICE_WIDTH,
+    height: DEVICE_HEIGHT,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Button, View, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { Card, Input } from 'react-native-elements';
 
+import { Button } from '../../components';
 import { FLIGHT_INFO, HOME } from '../../constants/routeKeys';
 import { loginWithEmailAndPassword } from '../../utils/networkHandler';
 
@@ -77,8 +78,12 @@ class Login extends Component<Props, State> {
             secureTextEntry
             onChangeText={text => this.setState({ password: text.toString() })}
           />
-          <Button title="Login" onPress={() => this.loginHandler()} />
-          <Button title="Signup" onPress={() => {}} />
+          <Button buttonStyle={{ marginTop: 30 }} onPress={() => this.loginHandler()}>
+            Log In
+          </Button>
+          <Button buttonStyle={{ marginTop: 30 }} onPress={() => {}}>
+            Sign Up
+          </Button>
         </Card>
       </View>
     );
