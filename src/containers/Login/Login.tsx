@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-import { Button, View } from 'react-native';
+import { Button, View, Text } from 'react-native';
 import { Card, Input } from 'react-native-elements';
 
 import { FLIGHT_INFO, HOME } from '../../constants/routeKeys';
 import { loginWithEmailAndPassword } from '../../utils/networkHandler';
 
-class Login extends Component {
+interface Props {
+  navigation: any;
+}
+
+interface State {
+  isLoggedIn: boolean;
+  email: string;
+  password: string;
+  errorMessage: string;
+}
+
+class Login extends Component<Props, State> {
   constructor(props) {
     super(props);
 
     this.state = {
       isLoggedIn: false,
       email: '',
-      password: ''
+      password: '',
+      errorMessage: ''
     };
   }
 
@@ -37,9 +49,11 @@ class Login extends Component {
     const { email, password } = this.state;
     const authResponse = await loginWithEmailAndPassword(email, password);
     if (authResponse === 'success') this.setState({ isLoggedIn: true });
+    else this.setState({ errorMessage: authResponse['error'] });
   };
 
   render() {
+    const { errorMessage } = this.state;
     return (
       <View>
         <Card>
@@ -47,6 +61,7 @@ class Login extends Component {
           <Input placeholder="Password" secureTextEntry onChangeText={text => this.setState({ password: text })} />
           <Button title="Login" onPress={() => this.loginHandler()} />
         </Card>
+        {errorMessage.length > 1 && <Text>{errorMessage}</Text>}
       </View>
     );
   }

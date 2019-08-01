@@ -14,7 +14,6 @@ class APIClient {
       axios
         .post(this.path + '/' + method, args)
         .then(response => {
-          console.log(new APIError(404, 'hello') instanceof APIError);
           if (typeof success == 'function') success(response.data);
           resolve(response.data);
         })

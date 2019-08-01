@@ -7,5 +7,5 @@ export const loginWithEmailAndPassword = (email: string, password: string) =>
     token => {
       if (token === 'success') return 'success';
     },
-    error => console.log(error)
+    error => console.log('error in network')
   );
