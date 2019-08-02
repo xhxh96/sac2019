@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Card, Input } from 'react-native-elements';
+import { NavigationParams, NavigationRoute, NavigationScreenProp, withNavigationFocus } from 'react-navigation';
 
 import { Button } from '../../components';
 import { FLIGHT_INFO, HOME } from '../../constants/routeKeys';
 import { loginWithEmailAndPassword } from '../../utils/networkHandler';
 
 interface Props {
-  navigation: any;
+  navigation: NavigationScreenProp<NavigationRoute, NavigationParams>;
 }
 
 interface State {
@@ -32,17 +33,9 @@ class Login extends Component<Props, State> {
   componentDidUpdate(prevProps, prevState) {
     const { isLoggedIn } = this.state;
     const { navigation } = this.props;
-
     if (prevState.isLoggedIn === isLoggedIn) return;
 
-    switch (isLoggedIn) {
-      case isLoggedIn:
-        navigation.navigate(FLIGHT_INFO);
-        break;
-      default:
-        navigation.navigate(HOME);
-        break;
-    }
+    if (isLoggedIn) navigation.navigate(FLIGHT_INFO);
   }
 
   loginHandler = async () => {
