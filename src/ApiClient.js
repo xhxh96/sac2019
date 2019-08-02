@@ -2,7 +2,7 @@
  * Generic API client to query API calls.
  */
 import axios from 'axios';
-import _ from 'lodash';
+import { assign } from 'lodash';
 
 class APIClient {
   constructor() {
@@ -18,7 +18,7 @@ class APIClient {
           resolve(response.data);
         })
         .catch(error => {
-          const err = _.assign({}, error);
+          const err = assign({}, error);
           const data = err && err.response ? err.response.data : null;
           const status = err && err.response ? err.response.status : null;
           reject(error);

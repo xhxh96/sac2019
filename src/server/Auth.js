@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { AsyncStorage } from 'react-native';
 
 export const addToAsyncStorage = async user => AsyncStorage.setItem(user.email, JSON.stringify(user));
