@@ -16,6 +16,10 @@ function createHandler(key, def) {
       res.send(result);
     } catch (err) {
       console.log(err);
+      if(err instanceof APIError) {
+        const {code, error} = err;
+        res.status(code).send({error})
+      }
     }
   };
 }
@@ -56,11 +60,7 @@ export const AppAPI = {
       const passwordHash = getSafeKey(password);
       const user = _.find(Users, { email });
       // if the user email does not exist.
-      if (!user) {
-        const error = new APIError(401, '[Unauthorised]: Account not found');
-        console.log(error);
-        return error;
-      }
+      if (!user) throw new APIError(401, '[Unauthorised]: Account not found');
 
       if (user && passwordHash === user.password) {
         console.log('[Auth] Login Successful');
