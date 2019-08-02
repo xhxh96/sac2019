@@ -16,9 +16,9 @@ function createHandler(key, def) {
       res.send(result);
     } catch (err) {
       console.log(err);
-      if(err instanceof APIError) {
-        const {code, error} = err;
-        res.status(code).send({error})
+      if (err instanceof APIError) {
+        const { code, message } = err;
+        res.status(code).send({ message });
       }
     }
   };
@@ -65,11 +65,7 @@ export const AppAPI = {
       if (user && passwordHash === user.password) {
         console.log('[Auth] Login Successful');
         return 'success';
-      } else {
-        const error = new APIError(401, '[Unauthorised]: Invalid Password');
-        console.log(error);
-        return error;
-      }
+      } else throw new APIError(401, '[Unauthorised]: Invalid Password');
     }
   }
 };

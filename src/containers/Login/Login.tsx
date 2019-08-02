@@ -34,27 +34,29 @@ class Login extends Component<Props, State> {
     const { navigation } = this.props;
 
     if (prevState.isLoggedIn === isLoggedIn) return;
-    else {
-      switch (isLoggedIn) {
-        case isLoggedIn:
-          navigation.navigate(FLIGHT_INFO);
-          break;
-        default:
-          navigation.navigate(HOME);
-          break;
-      }
+
+    switch (isLoggedIn) {
+      case isLoggedIn:
+        navigation.navigate(FLIGHT_INFO);
+        break;
+      default:
+        navigation.navigate(HOME);
+        break;
     }
   }
 
   loginHandler = async () => {
     const { email, password } = this.state;
-    if (email === '' || password === '') this.setState({ errorMessage: 'Email and password are required' });
-    else {
-      const authResponse = await loginWithEmailAndPassword(email, password);
-      if (authResponse === 'success') this.setState({ isLoggedIn: true });
-      else this.setState({ errorMessage: authResponse['error'] });
+    if (email === '' || password === '') {
+      this.setState({ errorMessage: 'Email and password are required' });
+      return;
     }
-  };
+    loginWithEmailAndPassword(email, password, (success) => {
+      this.setState({ isLoggedIn: true });
+    }, (error) => {
+      this.setState({ errorMessage: error.message })
+    })
+  }
 
   // TO BE DONE IN THE FUTURE
   // signUpHandler = () => {
@@ -86,7 +88,7 @@ class Login extends Component<Props, State> {
           <Button buttonStyle={{ marginTop: 30 }} onPress={() => this.loginHandler()}>
             Log In
           </Button>
-          <Button buttonStyle={{ marginTop: 30 }} onPress={() => {}}>
+          <Button buttonStyle={{ marginTop: 30 }} onPress={() => { }}>
             Sign Up
           </Button>
         </Card>
