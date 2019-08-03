@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { merge, find, forEach } from 'lodash';
 
 import SIA from './SIA';
 import APIError from '../server/APIError';
@@ -9,13 +9,17 @@ import Users from '../../fixtures/Users';
 function createHandler(key, def) {
   return async (req, res) => {
     const isGet = req.method.toUpperCase() === 'GET';
-    const args = isGet ? _.merge({}, req.params, req.query) : req.body;
+    const args = isGet ? merge({}, req.params, req.query) : req.body;
     try {
       console.log(`API request at: [${key}]`);
       let result = await def.handler(args);
       res.send(result);
     } catch (err) {
       console.log(err);
+      if (err instanceof APIError) {
+        const { code, message } = err;
+        res.status(code).send({ message });
+      }
     }
   };
 }
@@ -54,7 +58,7 @@ export const AppAPI = {
     method: 'post',
     handler: ({ email, password }) => {
       const passwordHash = getSafeKey(password);
-      const user = _.find(Users, { email });
+      const user = find(Users, { email });
       // if the user email does not exist.
       if (!user) throw new APIError(401, '[Unauthorised]: Account not found');
 
@@ -72,7 +76,7 @@ export const AppAPI = {
  */
 export default {
   attach: (server, path, definitions) => {
-    _.forEach(definitions, (def, key) => {
+    forEach(definitions, (def, key) => {
       const fullPath = `${path}/${key}`;
       server[def.method](fullPath, createHandler(key, def));
       console.log('Registered API [' + def.method.toUpperCase() + '] method @ ' + path + '/' + key);
