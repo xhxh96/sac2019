@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Card, Input } from 'react-native-elements';
-import { NavigationParams, NavigationRoute, NavigationScreenProp, withNavigationFocus } from 'react-navigation';
+import {
+  NavigationParams,
+  NavigationRoute,
+  NavigationScreenProp,
+  withNavigationFocus
+} from 'react-navigation';
 
 import { Button } from '../../components';
 import { FLIGHT_INFO, HOME } from '../../constants/routeKeys';
@@ -44,12 +49,17 @@ class Login extends Component<Props, State> {
       this.setState({ errorMessage: 'Email and password are required' });
       return;
     }
-    loginWithEmailAndPassword(email, password, (success) => {
-      this.setState({ isLoggedIn: true });
-    }, (error) => {
-      this.setState({ errorMessage: error.message })
-    })
-  }
+    loginWithEmailAndPassword(
+      email,
+      password,
+      success => {
+        this.setState({ isLoggedIn: true });
+      },
+      error => {
+        this.setState({ errorMessage: error.message });
+      }
+    );
+  };
 
   // TO BE DONE IN THE FUTURE
   // signUpHandler = () => {
@@ -69,7 +79,9 @@ class Login extends Component<Props, State> {
           <Input
             autoCapitalize="none"
             placeholder="Email"
-            onChangeText={text => this.setState({ email: text.toString().toLowerCase() })}
+            onChangeText={text =>
+              this.setState({ email: text.toString().toLowerCase() })
+            }
           />
           <Input
             placeholder="Password"
@@ -78,11 +90,11 @@ class Login extends Component<Props, State> {
             secureTextEntry
             onChangeText={text => this.setState({ password: text.toString() })}
           />
-          <Button buttonStyle={{ marginTop: 30 }} onPress={() => this.loginHandler()}>
+          <Button
+            buttonStyle={{ marginTop: 30 }}
+            onPress={() => this.loginHandler()}
+          >
             Log In
-          </Button>
-          <Button buttonStyle={{ marginTop: 30 }} onPress={() => { }}>
-            Sign Up
           </Button>
         </Card>
       </View>

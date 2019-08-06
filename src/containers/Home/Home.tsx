@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { NavigationParams, NavigationRoute, NavigationScreenProp, withNavigationFocus } from 'react-navigation';
+import {
+  NavigationParams,
+  NavigationRoute,
+  NavigationScreenProp,
+  withNavigationFocus
+} from 'react-navigation';
 
 import { Button } from '../../components';
-import { FLIGHT_INFO, LOGIN } from '../../constants/routeKeys';
+import {
+  FLIGHT_INFO,
+  LOGIN,
+  AUTH_PAGE,
+  SIGN_UP
+} from '../../constants/routeKeys';
 import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../../constants/deviceDimensions';
 
 interface Props {
@@ -45,13 +55,22 @@ class Home extends Component<Props> {
       <View>
         <View style={styles.container}>
           <Text>Singapore Airlines</Text>
-          <Button buttonStyle={{ marginTop: 30 }} onPress={() => navigation.navigate(LOGIN)}>
+          <Button
+            buttonStyle={{ marginTop: 30 }}
+            onPress={() => navigation.navigate(AUTH_PAGE)}
+          >
             Email
           </Button>
-          <Button buttonStyle={{ marginTop: 30 }} onPress={() => console.log('Facebook Login: TBD')}>
+          <Button
+            buttonStyle={{ marginTop: 30 }}
+            onPress={() => console.log('Facebook Login: TBD')}
+          >
             Facebook
           </Button>
-          <Button buttonStyle={{ marginTop: 30 }} onPress={() => navigation.navigate(FLIGHT_INFO)}>
+          <Button
+            buttonStyle={{ marginTop: 30 }}
+            onPress={() => navigation.navigate(FLIGHT_INFO)}
+          >
             Flight Info
           </Button>
         </View>
