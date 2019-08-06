@@ -6,11 +6,15 @@ import Login from '../Login';
 import Page from '../Page';
 import AuthPage from '../AuthPage';
 import SignUp from '../SignUp';
+import Dashboard from '../Dashboard';
 
 const AppNavigator = createStackNavigator(
   {
     [routes.HOME]: {
       screen: Home
+    },
+    [routes.DASHBOARD]: {
+      screen: Dashboard
     },
     [routes.AUTH_PAGE]: {
       screen: AuthPage

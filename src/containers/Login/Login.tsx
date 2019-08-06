@@ -9,7 +9,7 @@ import {
 } from 'react-navigation';
 
 import { Button } from '../../components';
-import { FLIGHT_INFO, HOME } from '../../constants/routeKeys';
+import { FLIGHT_INFO, DASHBOARD } from '../../constants/routeKeys';
 import { loginWithEmailAndPassword } from '../../utils/networkHandler';
 
 interface Props {
@@ -40,7 +40,7 @@ class Login extends Component<Props, State> {
     const { navigation } = this.props;
     if (prevState.isLoggedIn === isLoggedIn) return;
 
-    if (isLoggedIn) navigation.navigate(FLIGHT_INFO);
+    if (isLoggedIn) navigation.navigate(DASHBOARD);
   }
 
   loginHandler = async () => {
