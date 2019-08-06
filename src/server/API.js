@@ -60,12 +60,12 @@ export const AppAPI = {
       const passwordHash = getSafeKey(password);
       const user = find(Users, { email });
       // if the user email does not exist.
-      if (!user) throw new APIError(401, '[Unauthorised]: Account not found');
+      if (!user) throw new APIError(401, 'Account not found');
 
       if (user && passwordHash === user.password) {
         console.log('[Auth] Login Successful');
         return 'success';
-      } else throw new APIError(401, '[Unauthorised]: Invalid Password');
+      } else throw new APIError(401, 'Invalid Password');
     }
   }
 };
@@ -79,7 +79,14 @@ export default {
     forEach(definitions, (def, key) => {
       const fullPath = `${path}/${key}`;
       server[def.method](fullPath, createHandler(key, def));
-      console.log('Registered API [' + def.method.toUpperCase() + '] method @ ' + path + '/' + key);
+      console.log(
+        'Registered API [' +
+          def.method.toUpperCase() +
+          '] method @ ' +
+          path +
+          '/' +
+          key
+      );
     });
     console.log('[All API Registered. Happy Coding!]');
   }
