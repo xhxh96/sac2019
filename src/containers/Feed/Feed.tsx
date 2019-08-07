@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import { View, Text, StyleSheet } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
+import styles from './styles';
 
 class Feed extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class Feed extends Component {
   }
 
   renderDetail(rowData, sectionID, rowID) {
-    let title = <Text style={[styles.title]}>{rowData.title}</Text>
+    let title = <Text style={styles.title}>{rowData.title}</Text>
     let desc = null
     if (rowData.description && rowData.duration)
       desc = (
@@ -43,12 +44,12 @@ class Feed extends Component {
       )
 
     return (
-      <View style={{ flex: 1, flexDirection: 'row' }}>
-        <View style={{ flex: 2 }}>
+      <View style={styles.infoContainer}>
+        <View style={styles.info}>
           {title}
           {desc}
         </View>
-        <View stlye={{ flex: 3, alignIems: 'center', justifyContent: 'center', marginVertical: 'auto' }}>
+        <View stlye={styles.arrowIconContainer}>
           <MaterialIcons name="chevron-right" size={35} color="lightgray" />
         </View>
       </View >
@@ -64,15 +65,9 @@ class Feed extends Component {
         circleSize={50}
         circleColor='rgba(255,255,255,0.95)'
         lineColor='rgb(45,156,219)'
-        timeContainerStyle={{ minWidth: 60, marginTop: -5, padding: 20 }}
-        timeStyle={{ textAlign: 'center', backgroundColor: 'rgba(74, 186, 222,1)', color: 'white', padding: 5, borderRadius: 12 }}
-        detailContainerStyle={{ margin: 10 }}
-        titleStyle={{ paddingLeft: 20 }}
-        descriptionStyle={{ color: 'gray', paddingLeft: 20 }}
+        timeContainerStyle={styles.timeContainer}
+        timeStyle={styles.time}
         separator={true}
-        options={{
-          style: { paddingTop: 5 }
-        }}
         innerCircle={'icon'}
         iconStyle={styles.icon}
         onEventPress={() => this.onEventPress()}
@@ -81,49 +76,5 @@ class Feed extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    paddingTop: 65,
-    backgroundColor: 'white'
-  },
-  list: {
-    flex: 1,
-    marginTop: 20,
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: 'bold'
-  },
-  descriptionContainer: {
-    flexDirection: 'row',
-    paddingRight: 50
-  },
-  image: {
-    width: 50,
-    height: 50,
-    borderRadius: 25
-  },
-  textContainer: {
-    flexDirection: 'column'
-  },
-  textDescription: {
-    fontSize: 15,
-    marginLeft: 10,
-    color: 'gray'
-  },
-  textDuration: {
-    fontStyle: 'italic',
-    marginLeft: 10,
-    color: 'darkgray'
-  },
-  icon: {
-    width: 30,
-    height: 30,
-  }
-});
-
 
 export default Feed;
