@@ -12,7 +12,8 @@ import {
   FLIGHT_INFO,
   LOGIN,
   AUTH_PAGE,
-  SIGN_UP
+  SIGN_UP,
+  FEED
 } from '../../constants/routeKeys';
 import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../../constants/deviceDimensions';
 
@@ -57,6 +58,12 @@ class Home extends Component<Props> {
           <Text>Singapore Airlines</Text>
           <Button
             buttonStyle={{ marginTop: 30 }}
+            onPress={() => navigation.navigate(FEED)}
+          >
+            Feed
+          </Button>
+          <Button
+            buttonStyle={{ marginTop: 30 }}
             onPress={() => navigation.navigate(AUTH_PAGE)}
           >
             Email
@@ -73,6 +80,7 @@ class Home extends Component<Props> {
           >
             Flight Info
           </Button>
+       
         </View>
       </View>
     );

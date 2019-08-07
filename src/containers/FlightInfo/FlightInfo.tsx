@@ -2,9 +2,19 @@ import { MaterialIcons } from '@expo/vector-icons';
 import React, { Component } from 'react';
 import { Image, Text, View } from 'react-native';
 import { Divider } from 'react-native-elements';
+import {
+  NavigationParams,
+  NavigationRoute,
+  NavigationScreenProp,
+} from 'react-navigation';
 import { Button, ProfileImage } from '../../components';
+import { FEED } from '../../constants/routeKeys';
 import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../../constants/deviceDimensions';
 import styles from './styles';
+
+interface Props {
+  navigation: NavigationScreenProp<NavigationRoute, NavigationParams>;
+}
 
 const FLIGHT_INFO_STUB = [
   {
@@ -44,7 +54,11 @@ const BackgroundImage: React.FunctionComponent = () => (
   />
 );
 
-class FlightInfo extends Component {
+class FlightInfo extends Component<Props> {
+
+  constructor(props) {
+    super(props);
+  }
   renderHeader = () => (
     <View style={styles.header}>
       <View style={styles.locationContainer}>
@@ -108,7 +122,11 @@ class FlightInfo extends Component {
             </View>
             <Button buttonStyle={styles.buyButton}>GO BUY</Button>
           </View>
-          <Button buttonStyle={{ marginTop: 30 }} textStyle={{ fontSize: 15 }}>
+          <Button
+            buttonStyle={{ marginTop: 30 }}
+            textStyle={{ fontSize: 15 }}
+            onPress={() => this.props.navigation.navigate(FEED)}
+          >
             Ready to Fly?
           </Button>
         </View>

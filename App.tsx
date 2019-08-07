@@ -14,7 +14,13 @@ class App extends Component {
 
   async componentDidMount() {
     await Asset.loadAsync([
-      require('./assets/images/flight-info-bg/flight-info-bg.png')
+      require('./assets/images/flight-info-bg/flight-info-bg.png'),
+      require('./assets/icons/Feed/airplane.png'),
+      require('./assets/icons/Feed/check-in.png'),
+      require('./assets/icons/Feed/gate.png'),
+      require('./assets/icons/Feed/immigration.png'),
+      require('./assets/icons/Feed/taxi-icon.png'),
+      require('./assets/icons/Feed/walking.png')
     ]);
   }
 
