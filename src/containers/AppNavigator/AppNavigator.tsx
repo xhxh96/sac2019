@@ -7,6 +7,7 @@ import Page from '../Page';
 import AuthPage from '../AuthPage';
 import SignUp from '../SignUp';
 import Dashboard from '../Dashboard';
+import Feed from '../Feed';
 
 const AppNavigator = createStackNavigator(
   {
@@ -27,6 +28,9 @@ const AppNavigator = createStackNavigator(
     },
     [routes.FLIGHT_INFO]: {
       screen: FlightInfo
+    },
+    [routes.FEED]: {
+      screen: Feed
     }
   },
   {
