@@ -5,3 +5,4 @@ export const FLIGHT_INFO = 'FLIGHT_INFO';
 export const AUTH_PAGE = 'AUTH_PAGE';
 export const DASHBOARD = 'DASHBOARD';
 export const FEED = 'FEED';
+export const TRANSPORT_BOOKING = 'TRANSPORT_BOOKING';

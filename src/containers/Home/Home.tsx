@@ -10,10 +10,9 @@ import {
 import { Button } from '../../components';
 import {
   FLIGHT_INFO,
-  LOGIN,
   AUTH_PAGE,
-  SIGN_UP,
-  FEED
+  FEED,
+  TRANSPORT_BOOKING
 } from '../../constants/routeKeys';
 import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../../constants/deviceDimensions';
 
@@ -80,7 +79,12 @@ class Home extends Component<Props> {
           >
             Flight Info
           </Button>
-       
+          <Button
+            buttonStyle={{ marginTop: 30 }}
+            onPress={() => navigation.navigate(TRANSPORT_BOOKING)}
+          >
+            Transport Booking
+          </Button>
         </View>
       </View>
     );

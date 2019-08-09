@@ -120,7 +120,7 @@ class FlightInfo extends Component<Props> {
                 </Text>
               </View>
             </View>
-            <Button buttonStyle={styles.buyButton}>GO BUY</Button>
+            <Button onPress={() => null} buttonStyle={styles.buyButton}>GO BUY</Button>
           </View>
           <Button
             buttonStyle={{ marginTop: 30 }}
