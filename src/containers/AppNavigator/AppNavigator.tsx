@@ -3,11 +3,11 @@ import * as routes from '../../constants/routeKeys';
 import FlightInfo from '../FlightInfo';
 import Home from '../Home';
 import Login from '../Login';
-import Page from '../Page';
 import AuthPage from '../AuthPage';
 import SignUp from '../SignUp';
 import Dashboard from '../Dashboard';
 import Feed from '../Feed';
+import TransportBooking from '../TransportBooking';
 
 const AppNavigator = createStackNavigator(
   {
@@ -31,6 +31,9 @@ const AppNavigator = createStackNavigator(
     },
     [routes.FEED]: {
       screen: Feed
+    },
+    [routes.TRANSPORT_BOOKING]: {
+      screen: TransportBooking
     }
   },
   {
