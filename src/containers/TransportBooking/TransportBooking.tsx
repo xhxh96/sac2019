@@ -3,6 +3,8 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import MapView from 'react-native-maps';
 import Button from '../../components/Button';
 import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../../constants/deviceDimensions';
+import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
 import styles from './styles';
 
 interface State {
@@ -24,29 +26,27 @@ class TransportBooking extends React.Component<null, State> {
   };
 
   componentDidMount(): void {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const { latitude, longitude } = position.coords;
-        this.setState(
-          {
-            initialRegion: {
-              latitude,
-              longitude
-            }
-          },
-          () =>
-            this.setState({
-              showMap: true
-            })
-        );
-      },
-      error => alert(error.message),
-      {
-        enableHighAccuracy: false,
-        timeout: 20000
-      }
+    this.getLocationAsync().then(() =>
+      this.setState({
+        showMap: true
+      })
     );
   }
+
+  getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      console.error('Permission to access location was denied');
+    }
+    const { coords } = await Location.getCurrentPositionAsync({});
+
+    this.setState({
+      initialRegion: {
+        latitude: coords.latitude,
+        longitude: coords.longitude
+      }
+    });
+  };
 
   render() {
     const { initialRegion, showMap } = this.state;
