@@ -12,9 +12,6 @@ import Welcome from '../Welcome';
 
 const AppNavigator = createStackNavigator(
   {
-    [routes.FEED]: {
-      screen: Feed
-    },
     [routes.WELCOME]: {
       screen: Welcome
     },
@@ -41,7 +38,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteKey: routes.FEED
+    initialRouteKey: routes.WELCOME
   }
 );
 
