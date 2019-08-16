@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   icons: {
     flex: 1,
-    marginLeft: 30
+    marginLeft: 15
   },
   headerIcons: {
     marginHorizontal: 8
@@ -20,11 +20,14 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   listItem: {
-    flex: 3,
+    flex: 1,
     backgroundColor: '#f5f5f9'
   },
   listItemContainer: {
-    backgroundColor: '#f5f5f9'
+    backgroundColor: '#f5f5f9',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1
   },
   titleStyle: {
     fontSize: 14,

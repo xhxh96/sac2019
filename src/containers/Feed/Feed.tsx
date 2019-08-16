@@ -158,30 +158,30 @@ class Feed extends Component {
   renderItem = ({ item }) => {
     // this function will resize the marginBottom of each listItem based on duration
     // it is a purely aesthetical function
-    const resizer = duration => {
-      return duration * 1.5;
-    };
+    const resizer = duration => duration * 1.5;
+    const renderChevron = () => (
+      <AntDesign
+        name="arrowright"
+        size={20}
+        color="gray"
+        style={styles.chevron}
+      />
+    );
     return (
-      <View
-        style={[styles.feedContainer, { marginBottom: resizer(item.duration) }]}
-      >
-        {this.renderIcon(item)}
+      <View style={[styles.feedContainer]}>
         <ListItem
           Component={TouchableOpacity}
+          leftIcon={this.renderIcon(item)}
           title={item.title}
           titleStyle={styles.titleStyle}
           subtitle={this.renderDescription(item)}
           subtitleStyle={styles.subtitleStyle}
           style={styles.listItem}
-          containerStyle={styles.listItemContainer}
-          chevron={
-            <AntDesign
-              name="arrowright"
-              size={20}
-              color="gray"
-              style={styles.chevron}
-            />
-          }
+          containerStyle={[
+            styles.listItemContainer,
+            { marginBottom: resizer(item.duration) }
+          ]}
+          chevron={renderChevron()}
         />
       </View>
     );
