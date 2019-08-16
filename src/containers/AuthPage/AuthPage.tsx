@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { SafeAreaView } from 'react-native';
 
 import {
   createStackNavigator,
   createMaterialTopTabNavigator,
-  createAppContainer
+  createAppContainer,
+  MaterialTopTabBar
 } from 'react-navigation';
 
 import Login from '../Login';
@@ -33,7 +34,12 @@ const TabScreen = createMaterialTopTabNavigator(
         borderBottomColor: '#87B56A',
         borderBottomWidth: 2
       }
-    }
+    },
+    tabBarComponent: props => (
+      <SafeAreaView>
+        <MaterialTopTabBar {...props} />
+      </SafeAreaView>
+    )
   }
 );
 
@@ -46,4 +52,10 @@ const AuthPage = createStackNavigator({
   }
 });
 
-export default createAppContainer(AuthPage);
+const AuthAppContainer = createAppContainer(AuthPage);
+
+AuthAppContainer.navigationOptions = {
+  header: null
+};
+
+export default AuthAppContainer;

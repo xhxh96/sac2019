@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Card, Input } from 'react-native-elements';
 import {
   NavigationParams,
   NavigationRoute,
-  NavigationScreenProp,
-  withNavigationFocus
+  NavigationScreenProp
 } from 'react-navigation';
 
 import { Button } from '../../components';
-import { FLIGHT_INFO, DASHBOARD } from '../../constants/routeKeys';
+import { FLIGHT_INFO } from '../../constants/routeKeys';
 import { loginWithEmailAndPassword } from '../../utils/networkHandler';
 
 interface Props {
@@ -24,6 +23,10 @@ interface State {
 }
 
 class Login extends Component<Props, State> {
+  static navigationOptions = {
+    header: null
+  };
+
   constructor(props) {
     super(props);
 

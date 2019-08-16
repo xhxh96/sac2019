@@ -8,9 +8,13 @@ import SignUp from '../SignUp';
 import Dashboard from '../Dashboard';
 import Feed from '../Feed';
 import TransportBooking from '../TransportBooking';
+import Welcome from '../Welcome';
 
 const AppNavigator = createStackNavigator(
   {
+    [routes.WELCOME]: {
+      screen: Welcome
+    },
     [routes.HOME]: {
       screen: Home
     },
@@ -37,7 +41,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteKey: routes.HOME
+    initialRouteKey: routes.WELCOME
   }
 );
 
