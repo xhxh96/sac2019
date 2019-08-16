@@ -19,7 +19,6 @@ const LeftElement = props => {
 };
 
 const renderJourneyIndicator = duration => {
-  console.log(duration);
   /**
    * 3 types:
    * long: duration >= 40min
@@ -28,7 +27,6 @@ const renderJourneyIndicator = duration => {
    */
   const indicator =
     duration >= 40 ? 'long' : duration <= 10 ? 'short' : 'medium';
-  console.log(indicator);
   switch (indicator) {
     case 'long':
       return (
