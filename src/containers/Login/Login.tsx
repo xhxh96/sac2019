@@ -64,16 +64,6 @@ class Login extends Component<Props, State> {
     );
   };
 
-  // TO BE DONE IN THE FUTURE
-  // signUpHandler = () => {
-  //   const { email, password } = this.state;
-  //   if (email === '' || password === '') this.setState({ errorMessage: 'Email and password are required' });
-  //   else {
-  //     const signUpResponse = signUpWithEmailAndPassword(email, password);
-  //     this.setState({ isLoggedIn: true });
-  //   }
-  // };
-
   render() {
     const { errorMessage } = this.state;
     return (
