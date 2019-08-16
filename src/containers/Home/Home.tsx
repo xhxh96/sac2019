@@ -65,13 +65,7 @@ class Home extends Component<Props> {
             buttonStyle={{ marginTop: 30 }}
             onPress={() => navigation.navigate(AUTH_PAGE)}
           >
-            Email
-          </Button>
-          <Button
-            buttonStyle={{ marginTop: 30 }}
-            onPress={() => console.log('Facebook Login: TBD')}
-          >
-            Facebook
+            Log in
           </Button>
           <Button
             buttonStyle={{ marginTop: 30 }}

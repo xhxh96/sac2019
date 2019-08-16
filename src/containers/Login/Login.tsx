@@ -40,7 +40,7 @@ class Login extends Component<Props, State> {
     const { navigation } = this.props;
     if (prevState.isLoggedIn === isLoggedIn) return;
 
-    if (isLoggedIn) navigation.navigate(DASHBOARD);
+    if (isLoggedIn) navigation.navigate(FLIGHT_INFO);
   }
 
   loginHandler = async () => {

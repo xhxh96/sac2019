@@ -24,7 +24,7 @@ const TabScreen = createMaterialTopTabNavigator(
       activeTintColor: '#FFFFFF',
       inactiveTintColor: '#F8F8F8',
       style: {
-        backgroundColor: '#3ACCE1'
+        backgroundColor: '#2A2E43'
       },
       labelStyle: {
         textAlign: 'center'

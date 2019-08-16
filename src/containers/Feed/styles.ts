@@ -2,67 +2,56 @@ import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { DEVICE_HEIGHT } from '../../constants/deviceDimensions';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    paddingTop: 65,
-    backgroundColor: 'white'
+  pageContainer: {
+    backgroundColor: '#f5f5f9'
   },
-  list: {
+  icons: {
     flex: 1,
-    marginTop: 20,
+    marginLeft: 30
   },
-  infoContainer: {
-    flex: 1,
+  headerIcons: {
+    marginHorizontal: 8
+  },
+  chevron: {
+    marginRight: 10
+  },
+  feedContainer: {
     flexDirection: 'row',
-    paddingLeft: 20,
-    margin: 10
+    alignItems: 'center'
   },
-  info: {
-    flex: 2
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  descriptionContainer: {
-    flexDirection: 'row',
-    paddingRight: 50
-  },
-  textContainer: {
-    flexDirection: 'column'
-  },
-  textDescription: {
-    fontSize: 15,
-    marginLeft: 10,
-    color: 'gray',
-    paddingLeft: 20
-  },
-  textDuration: {
-    fontStyle: 'italic',
-    marginLeft: 10,
-    color: 'darkgray'
-  },
-  arrowIconContainer: {
+  listItem: {
     flex: 3,
+    backgroundColor: '#f5f5f9'
+  },
+  listItemContainer: {
+    backgroundColor: '#f5f5f9'
+  },
+  titleStyle: {
+    fontSize: 14,
+    fontWeight: 'bold'
+  },
+  subtitleStyle: {
+    fontSize: 12,
+    color: 'gray'
+  },
+  separator: {
+    height: 1,
+    width: '100%',
+    backgroundColor: '#CED0CE',
+    marginVertical: 5
+  },
+  header: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: 'auto'
+    borderRadius: 15,
+    backgroundColor: '#2A2E43',
+    height: 60,
+    marginHorizontal: 10,
+    marginVertical: 5,
+    paddingHorizontal: 10
   },
-  timeContainer: {
-    minWidth: 40,
-    marginTop: -5,
-    padding: 20,
-  },
-  time: {
-    textAlign: 'center',
-    backgroundColor: 'rgba(74, 186, 222,1)',
-    color: 'white',
-    padding: 5,
-  },
-  icon: {
-    width: 30,
-    height: 30,
+  headerText: {
+    color: 'lightgray'
   }
 });
 
