@@ -12,14 +12,25 @@ const styles = StyleSheet.create({
   },
   listItemContainer: {
     marginVertical: 2,
-    minHeight: 40
-    // backgroundColor: '#f5f5f9'
+    minHeight: 40,
+    backgroundColor: '#f5f5f9'
   },
   titleStyle: {
-    marginLeft: 50,
+    marginLeft: 25,
     fontSize: 14,
     color: '#3c3c3c',
     fontWeight: 'bold'
+  },
+  subtitleDescription: {
+    marginLeft: 25,
+    fontSize: 13,
+    color: 'gray'
+  },
+  subtitleDuration: {
+    marginLeft: 25,
+    fontSize: 13,
+    color: '#00A86B',
+    marginTop: 5
   },
   separator: {
     height: 1,
