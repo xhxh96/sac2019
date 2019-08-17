@@ -27,6 +27,9 @@ const AppNavigator = createStackNavigator(
     [routes.LOGIN]: {
       screen: Login
     },
+    [routes.FEED]: {
+      screen: Feed
+    },
     [routes.SIGN_UP]: {
       screen: SignUp
     },
