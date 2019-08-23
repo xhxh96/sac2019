@@ -29,7 +29,7 @@ class Welcome extends React.Component<Props> {
         >
           <SafeAreaView style={styles.contentContainer}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.headerText}>Welcome to SIApp</Text>
+              <Text style={styles.headerText}>Where Got Time SIA!!!</Text>
             </View>
 
             <View

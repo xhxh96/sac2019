@@ -11,8 +11,8 @@ import Description from './Description';
 import ListChevron from './ListChevron/';
 import FeedHeader from './FeedHeader/';
 import { heightResizer } from '../../utils/heightResizer';
-import { TRANSPORT_BOOKING } from '../../constants/routeKeys';
-import { tripData } from '../../../fixtures/tripData.js';
+import { CHECK_IN_COUNTER, TRANSPORT_BOOKING } from '../../constants/routeKeys';
+import { tripData } from '../../../fixtures/tripData';
 import styles from './styles';
 
 interface Props {
@@ -29,6 +29,9 @@ class Feed extends Component<Props> {
     switch (pageReference) {
       case 'taxi':
         navigation.navigate(TRANSPORT_BOOKING);
+        break;
+      case 'checkin-counter':
+        navigation.navigate(CHECK_IN_COUNTER);
         break;
       default:
         break;

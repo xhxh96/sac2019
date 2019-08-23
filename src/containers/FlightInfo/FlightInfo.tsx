@@ -5,7 +5,7 @@ import { Divider } from 'react-native-elements';
 import {
   NavigationParams,
   NavigationRoute,
-  NavigationScreenProp,
+  NavigationScreenProp
 } from 'react-navigation';
 import { Button, ProfileImage } from '../../components';
 import { FEED } from '../../constants/routeKeys';
@@ -55,6 +55,9 @@ const BackgroundImage: React.FunctionComponent = () => (
 );
 
 class FlightInfo extends Component<Props> {
+  static navigationOptions = {
+    header: null
+  };
 
   constructor(props) {
     super(props);
@@ -116,11 +119,13 @@ class FlightInfo extends Component<Props> {
                   Mary Jane
                 </Text>
                 <Text style={{ color: 'gray', fontSize: 14 }}>
-                  Business CLass
+                  Business Class
                 </Text>
               </View>
             </View>
-            <Button onPress={() => null} buttonStyle={styles.buyButton}>GO BUY</Button>
+            {/*<Button onPress={() => null} buttonStyle={styles.buyButton}>*/}
+            {/*  GO BUY*/}
+            {/*</Button>*/}
           </View>
           <Button
             buttonStyle={{ marginTop: 30 }}

@@ -2,6 +2,8 @@ import { Asset } from 'expo-asset';
 import React, { Component } from 'react';
 import AppNavigator from './src/containers/AppNavigator';
 
+console.disableYellowBox = true;
+
 class App extends Component {
   constructor(props) {
     super(props);

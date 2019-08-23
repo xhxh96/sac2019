@@ -9,6 +9,7 @@ import Dashboard from '../Dashboard';
 import Feed from '../Feed';
 import TransportBooking from '../TransportBooking';
 import Welcome from '../Welcome';
+import CheckInCounter from '../CheckInCounter';
 
 const AppNavigator = createStackNavigator(
   {
@@ -38,6 +39,9 @@ const AppNavigator = createStackNavigator(
     },
     [routes.TRANSPORT_BOOKING]: {
       screen: TransportBooking
+    },
+    [routes.CHECK_IN_COUNTER]: {
+      screen: CheckInCounter
     }
   },
   {

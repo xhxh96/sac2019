@@ -7,3 +7,4 @@ export const AUTH_PAGE = 'AUTH_PAGE';
 export const DASHBOARD = 'DASHBOARD';
 export const FEED = 'FEED';
 export const TRANSPORT_BOOKING = 'TRANSPORT_BOOKING';
+export const CHECK_IN_COUNTER = 'CHECK_IN_COUNTER';
