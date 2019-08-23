@@ -1,4 +1,5 @@
-#SAC 2019
+## Singapore Airlines Challenge 2019 - Where Got Time SIA
+
 
 ## Building
 The App consists of both front-end (React-Native) and back-end(Node.js/express).
